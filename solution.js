@@ -13,4 +13,15 @@ function formatValue(value) {
         return !value;
     }
 }
-console.log(formatValue("hello"));
+//Create a function getLength that accepts a value which may be a string or an array, and returns the length of the value.
+// If the input is a string → return the number of characters.
+// If the input is an array → return the number of elements.
+function getLength(value) {
+    if (Array.isArray(value)) {
+        return ('Here is Array Length:' + value.length);
+    }
+    else {
+        return ('Here is string Length:' + value.length);
+    }
+}
+console.log(getLength('Arnob'));
