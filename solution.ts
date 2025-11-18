@@ -43,21 +43,40 @@ class person {
 
 
 
-//Create a function filterByRating that accepts an array of items, where each item has the following properties:
-
-// title (string)
-// rating (number between 0 and 5)
-// The function should return a new array containing only the items with a rating of 4 or more.
-
-// Requirements:
-// You must write the correct type for the function parameter and the return type.
-// Do not mutate the original array.
-
 type Item ={
     title: string;
     rating:number;
-}
+};
 
 function filterByRating(items: Item[] ): Item[] {
        return items.filter(item=> item.rating >=4);
+}
+
+
+
+
+type User = {
+    id: number;
+    name: string;
+    email: string;
+    isActive: boolean;
+}
+
+function filterActiveUsers (users: User[]): User[]{
+      return users.filter(user => user.isActive === true);
+}
+
+
+
+
+interface Book {
+    title: string;
+    author: string;
+    publishedYear: number;
+    isAvailable: boolean;
+}
+
+function printBookDetails(book: Book){
+  const available = book.isAvailable ? 'Yes' : 'No';
+  return (`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${available} `)
 }
