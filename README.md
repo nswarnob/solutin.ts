@@ -1,0 +1,1 @@
+Here i solved 8 typescript problems where i tried to learn all basic of type script.
