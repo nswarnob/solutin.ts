@@ -1,10 +1,3 @@
-//Create a function formatValue that accepts a value which may be a string, number, or boolean, and returns the following based on the value type:
-
-// If the input is a string → return the string in uppercase
-// If the input is a number → return the number multiplied by 10
-// If the input is a boolean → return the opposite value (true → false, false → true)
-
-
 function formatValue (value: string | number | boolean){
 
     if(typeof value === "string"){
@@ -19,10 +12,6 @@ function formatValue (value: string | number | boolean){
 }
 
 
-//Create a function getLength that accepts a value which may be a string or an array, and returns the length of the value.
-
-// If the input is a string → return the number of characters.
-// If the input is an array → return the number of elements.
 
 
 function getLength (value: string | string[] ){
@@ -33,3 +22,42 @@ function getLength (value: string | string[] ){
     }
 }
 
+
+
+
+class person {
+    name: string;
+    age: number;
+
+    constructor(name:string, age:number){
+        this.name = name;
+        this.age = age;
+    }
+
+    getDetails(): string{
+        return `Name: ${this.name}, Age: ${this.age}`;
+    }
+
+}
+
+
+
+
+//Create a function filterByRating that accepts an array of items, where each item has the following properties:
+
+// title (string)
+// rating (number between 0 and 5)
+// The function should return a new array containing only the items with a rating of 4 or more.
+
+// Requirements:
+// You must write the correct type for the function parameter and the return type.
+// Do not mutate the original array.
+
+type Item ={
+    title: string;
+    rating:number;
+}
+
+function filterByRating(items: Item[] ): Item[] {
+       return items.filter(item=> item.rating >=4);
+}
