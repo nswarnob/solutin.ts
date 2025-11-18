@@ -80,3 +80,64 @@ function printBookDetails(book: Book){
   const available = book.isAvailable ? 'Yes' : 'No';
   return (`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${available} `)
 }
+
+
+
+
+function getUniqueValues(arr1: (string|number)[], arr2:(string|number)[]): (string|number)[] {
+     const result: (string|number)[]=[];
+
+     for (let i = 0; i < arr1.length; i++) {
+    let isDuplicate = false;
+    for (let j = 0; j < result.length; j++) {
+      if (result[j] === arr1[i]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      result[result.length] = arr1[i];
+    }
+  }
+
+   for (let i = 0; i < arr2.length; i++) {
+    let isDuplicate = false;
+    for (let j = 0; j < result.length; j++) {
+      if (result[j] === arr2[i]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      result[result.length] = arr2[i];
+    }
+  }
+  return result;
+}
+
+
+
+
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+};
+
+function calculateTotalPrice(products: Product[]): number {
+  if (products.length === 0) {
+    return 0;
+  }
+  
+  return products.reduce((total, product) => {
+    const subtotal = product.price * product.quantity;
+    
+    if (product.discount !== undefined && product.discount > 0) {
+      const discountAmount = (subtotal * product.discount) / 100;
+      return total + (subtotal - discountAmount);
+    }
+    
+    return total + subtotal;
+  }, 0);
+}
